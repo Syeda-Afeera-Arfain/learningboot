@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<h3>Start learning JavaScript!!! </h3>
+<p id="demo">Why we use JavaScript??</p>
+<button type="button" onclick="myFunction()">Click here</button>
+<h3>Declaring a variable and printing in console</h3>
+
+<p>F12 on your keybord will activate debugging.</p>
+<p>Then select "Console" in the debugger menu.</p>
+<p>It will display variable</p>
+<h3>Accessing the element indexed at 3 from an array a[1,2,3,4,5] and type casting it to string!</h3>
+
+
+<p id="demo"></p>
+
+<p id="ary"></p>
+
+
+
+
+<script>
+function myFunction() {
+ document.getElementById("demo").innerHTML = "JavaScript is used to convert static web pages to dynamic.<br> In HTML, JavaScript code is inserted between script tags,Scripts can be placed in the body, or in the head section of an HTML page, or in both.";
+}
+var x=10
+var y=20
+console.log(x,y);
+
+var a = [1,2,3,4,5];
+document.getElementById("ary").innerHTML = String(a[3]);
+
+</script>
+
+</head>
+<body>
+	<h3>Calculating total sum and average</h3>
+	Subject:<input type="text" name="Subject" id="Subject"/><br/><br/>
+	Marks:<input type="number" name="Marks" id="Marks"/><br/><br/>
+	<button onclick="addRow()">Add row</button><br/><br/>
+
+	<table id="table" border="1">
+
+      <tr>
+      	<th>Subject</th>
+      	<th>Marks</th>
+      </tr>
+      <tr>
+      	<td>Python</td>
+      	<td>30</td>
+      </tr>
+      <tr>
+      	<td>DBMS</td>
+      	<td>15</td>
+      </tr>
+      <tr>
+      	<td>.Net</td>
+      	<td>45</td>
+      </tr>
+	</table>
+	<span id="sumV"></span><br>
+      <span id="avgV"></span><br>
+
+
+ <h3>Math.pow(x,y) returns the value of x to the power of y:</h3>
+ <p>Here x=8,y=2</p>
+<p id="sqrt"></p>
+<h3>Math.sqrt(x) returns the square root of x:</h3>
+<p>Here x=64</p>
+<p id="root"></p>
+<h3>Math.abs(x) returns the absolute (positive) value of x:</h3>
+<p>Here x=-4.4</p>
+
+<p id="absolute"></p>
+<h3>Math.random() returns a random number:</h3>
+<p>ceileded ,rounded and floored</p>
+<div id ="message"></div>
+<button onclick="getRandomNumber()">Get Random No.</button><br/><br/>
+<h2>JavaScript Math.sin()</h2>
+<p id="op"></p>
+
+<h4>Validation form</h4>
+<form onsubmit="return myfunc()">
+	Mobile Number:<input type="text" id="mobilenumber" value="">
+	<span id="msg" style="color:red;"></span><br>
+	<input type="submit" value="submit">
+</form>
+<h5>Subject Interest</h5>
+<form name="myform" action ="/action_page.php" onsubmit="return validation()">
+	<input type="checkbox" id="Java"  value="Java">Java
+    <input type="checkbox" id="Python"  value="Python">Python
+    <input type="checkbox" id=".Net"  value=".Net">.Net
+    <input type="checkbox" id="DBMS"  value="DBMS">DBMS<br><br>
+    
+   <input type="submit" value="Submit" >
+
+</form>
+
+
+<script>
+
+
+	var table=document.getElementById("table"),sumVal=0;
+	getSum();
+getAvg();
+function getSum()
+{
+	for(var i=1;i < table.rows.length; i++)
+	{
+		sumVal=sumVal+parseInt(table.rows[i].cells[1].innerHTML);
+	}
+	document.getElementById("sumV").innerHTML="Sum value="+sumVal;
+}
+function getAvg()
+{
+	var avg = sumVal/(table.rows.length-1);
+	document.getElementById("avgV").innerHTML="Avg value="+parseInt(avg);
+}
+function addRow()
+{
+var Subject=document.getElementById("Subject").value;
+var Marks=document.getElementById("Marks").value;
+var table =document.getElementsByTagName("table")[0];
+var newRow=table.insertRow(1);
+var cel1=newRow.insertCell(0);
+var cel2=newRow.insertCell(1);
+
+cel1.innerHTML=Subject;
+cel2.innerHTML=Marks;
+getSum();
+getAvg();
+}
+document.getElementById("sqrt").innerHTML = Math.pow(8,2);
+document.getElementById("root").innerHTML = Math.sqrt(64);
+document.getElementById("absolute").innerHTML = Math.abs(-4.4);
+document.getElementById("op").innerHTML = "The sine value of 90 degrees is " + Math.sin(90 * Math.PI / 180);
+
+
+function getRandomNumber(){
+var randomNumber =Math.random()*10;
+
+var ceiledNumber =Math.ceil(randomNumber);
+var roundedNumber =Math.round(ceiledNumber);
+var flooredNumber =Math.floor(roundedNumber);
+
+document.getElementById("message").innerHTML=flooredNumber;
+
+}
+function myfunc() {
+	var a=document.getElementById("mobilenumber").value;
+	if(a=="")
+	{
+		document.getElementById("msg").innerHTML="**Please enter Mobile Number";
+		return false;
+	}
+	if(isNaN(a))
+	{
+		document.getElementById("msg").innerHTML="**Please enter a valid Number";
+		return false;
+	}
+	if(a.length<10)
+	{
+		document.getElementById("msg").innerHTML="** Mobile Number must be 10 digits"
+		return false;
+	}
+	
+  
+} 
+function validation(){
+	var valid=false;
+	if(document.getElementById("Java").checked){
+		valid=true;
+	}
+   else if(document.getElementById("Python").checked){
+		valid=true;
+	}
+	else if(document.getElementById(".Net").checked){
+		valid=true;
+	}
+	else if(document.getElementById("DBMS").checked){
+		valid=true;
+	}
+
+    if (valid){
+    	alert("validation Successful");
+    }
+   else{
+   	alert("Please select atleast one subject");
+   	return false
+   }
+
+
+}
+
+</script>
+</body>
+
+</html>
