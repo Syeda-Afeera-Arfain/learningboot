@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>variables</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+      <title>day2 js</title>
+
+<h3>Click here to generate fibonacci series within range</h3>
+<button onclick="create()">click here</button>
+
+
+<script>
+function myFunction() {
+  var d = new Date(2020,6,1,0,0,0);
+  console.log(d);
+
+}
+function create(){
+
+var var1=0;
+var var2=1;
+var var3;
+
+var number=prompt("Enter the limit to generate Fibonacci series",0);
+document.write(var1+"<br/>")
+document.write(var2+"<br/>")
+for(var i=3;i<=number;i++)
+{
+      var3=var1+var2;
+      var1=var2;
+      var2=var3;
+
+      document.write(var3+"<br/>")
+}
+}
+
+
+
+
+</script>
+<h3>Click here to get Today's date in console</h3>
+<button onclick="myFunction()">Click me</button><br/><br/>
+<h3>Click here to get the date and time</h3>
+
+<button onclick="this.innerHTML=Date()">Click here</button><br/>
+
+</head>
+<body>
+<h3>Click the button to display the date.</h3>
+<button onclick="displayDate()">The time is?</button>
+<p id="date"></p>
+<h3>Click here to check the number is between 10 & 100</h3>
+<button onclick="myfunc()">Check</button>
+
+<h3>Please input a number between 5 and 10:</h3>
+<input id="demo" type="text">
+<button type="button" onclick="my()">Test Input</button>
+<p id="p01"></p>
+
+<h3>Extracting the 5th 7th and 10th word from the string</h3>
+<p id="m"></p>
+<p id="s"></p>
+<p id="t"></p>
+<p id="d"></p>
+<script>
+      
+function displayDate() {
+  document.getElementById("date").innerHTML = Date();
+}
+function myfunc(){
+var n=2;
+
+      switch(n)
+      {
+
+               case 0:if(n<10)
+                      document.write("number is not between 10 & 100");
+                       break;
+               case 1:if(n>100)
+                      document.write("number is not between 10 & 100");
+                      break;
+            default:document.write("number is between 10 & 100");
+             
+ 
+             }          
+         }
+ function my() {
+  var message, x;
+  message = document.getElementById("p01");
+  message.innerHTML = "";
+  x = document.getElementById("demo").value;
+  try { 
+    if(x == "")  throw "empty";
+    if(isNaN(x)) throw "not a number";
+    x = Number(x);
+    if(x < 5)  throw "too low";
+    if(x > 10)   throw "too high";
+    if(x>5 && x<10){
+      document.write(x)
+}
+  }
+  catch(err) {
+    message.innerHTML = "Input is " + err;
+  }
+}
+var str = "Hypertext Markup Language is the standard markup language for documents designed to be displayed in a web browser.";
+document.getElementById("m").innerHTML = str;
+var res = str.substring(29,33);
+document.getElementById("s").innerHTML = res;
+var res = str.substring(42,49);
+document.getElementById("t").innerHTML = res;
+var res = str.substring(62,71);
+document.getElementById("d").innerHTML = res;
+
+</script>
+</body>
+</html>
